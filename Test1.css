@@ -1,4 +1,7 @@
-﻿button{
+﻿body{
+    background-color: black;
+}
+button{
     background-color: #4CAF50;
     border: 1px solid green;
     color: white;
