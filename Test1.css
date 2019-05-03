@@ -21,6 +21,10 @@ table{
 td{
     font-size: 80%;
 }
+span{
+    padding-right: 5%;
+    font-size: 1.2em;
+}
 .link{
     color: wheat;
 }
@@ -42,28 +46,10 @@ td{
 }
 .firstColl{
     width: 40%;
+    width: max-content;
 }
 .firstCollFullData{
     width: 40%;
-}
-.nameUserUpper{
-    font-variant: small-caps;
-    display: inline-block;
-}
-.nameUserFirst{
-    font-variant: small-caps;
-    display: inline-block;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.nameUserUpper:first-letter{
-    font-size: 150%;
-}
-.nameUserFirst:first-letter{
-    font-size: 150%;
-}
-.nameUpper{
-    font-variant: small-caps;
 }
 .backfon{
     width: 160%;
