@@ -38,7 +38,7 @@ function requestToServer() {
       
       let newDiv = document.createElement('div');
         newDiv.className = 'dataNameUser';
-        newDiv.innerHTML = `<a class='link' href='#user${oneUser.name.first}' onclick='fon.style.display="block"'><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.thumbnail}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
+        newDiv.innerHTML = `<a class='link' href='#user${oneUser.name.first}' onclick='fon.style.display="block"'><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
                             <div class='fullDataNameUser' id='user${oneUser.name.first}'>
                               <table>
                                 <tr><td class='firstCollFullData' rowspan="6"><img class='avatarUserBig' src="${oneUser.picture.large}" alt="bigAvatar" /></td><td><div>Имя</div></td><td><div class='nameUserUpper'>${oneUserFirstUp}</div></td></tr>
