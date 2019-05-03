@@ -111,6 +111,9 @@ span{
     display: block;
     pointer-events: auto;
 }
+.fullDataUserTable{
+    padding: 5%;
+}
 .fullDataNameUser > div {
     width: 400px;
     position: relative;
