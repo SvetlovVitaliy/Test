@@ -38,8 +38,8 @@ function requestToServer() {
       
       let newDiv = document.createElement('div');
         newDiv.className = 'dataNameUser';
-        newDiv.innerHTML = `<a class='link' href='#user${oneUser.name.first}' onclick='fon.style.display="block"'><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
-                            <div class='fullDataNameUser' id='user${oneUser.name.first}'>
+        newDiv.innerHTML = `<a class='link' href='#user${oneUser.name.first}${oneUser.name.last}' onclick='fon.style.display="block"'><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
+                            <div class='fullDataNameUser' id='user${oneUser.name.first}${oneUser.name.last}'>
                               <table class='fullDataUserTable'>
                                 <tr><td class='firstCollFullData' rowspan="6"><img class='avatarUserBig' src="${oneUser.picture.large}" alt="bigAvatar" /></td><td><div>Имя</div></td><td><div class='nameUserUpper'>${oneUserFirstUp}</div></td></tr>
                                 <tr><td><div>Фамилия</div></td><td><div class='nameUserUpper'>${oneUserLastUp}</div></td></tr>
@@ -53,7 +53,7 @@ function requestToServer() {
       dataUserList.appendChild(newDiv);
     }
   }
-
+  
   let sortByNameAscendingBtn = document.getElementById('sortByNameAscending');
   sortByNameAscendingBtn.addEventListener('click', sortingByNameAscending);
   function sortingByNameAscending() {
@@ -61,7 +61,9 @@ function requestToServer() {
       sortResponseToServer.sort(function(a,b) {
         let x = a.name.first.toLowerCase();
         let y = b.name.first.toLowerCase();
-        return x < y ? -1 : x > y ? 1 : 0;
+        let z = a.name.last.toLowerCase();
+        let g = b.name.last.toLowerCase();
+        return x < y ? -1 : x > y ? 1 : x === y ? z < g ? -1 : 0 : 0;
       });
     callback();
   }
@@ -73,7 +75,9 @@ function requestToServer() {
       sortResponseToServer.sort(function(a,b) {
         let x = a.name.first.toLowerCase();
         let y = b.name.first.toLowerCase();
-        return x > y ? -1 : x < y ? 1 : 0;
+        let z = a.name.last.toLowerCase();
+        let g = b.name.last.toLowerCase();
+        return x > y ? -1 : x < y ? 1 : x === y ? z > g ? -1 : 0 : 0;
       });
     callback();
   }
