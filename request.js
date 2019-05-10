@@ -38,7 +38,8 @@ function requestToServer() {
       
       let newDiv = document.createElement('div');
         newDiv.className = 'dataNameUser';
-        newDiv.innerHTML = `<a class='link' href='#user${oneUser.name.first}${oneUser.name.last}' onclick='fon.style.display="block"'><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
+        newDiv.innerHTML =  `<div><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
+                            </div>
                             <div class='fullDataNameUser' id='user${oneUser.name.first}${oneUser.name.last}'>
                               <table class='fullDataUserTable'>
                                 <tr><td class='firstCollFullData' rowspan="6"><img class='avatarUserBig' src="${oneUser.picture.large}" alt="bigAvatar" /></td><td><div>Имя</div></td><td><div class='nameUserUpper'>${oneUserFirstUp}</div></td></tr>
@@ -48,12 +49,33 @@ function requestToServer() {
                                 <tr><td><div>Штат</div></td><td><div class='nameUpper'>${oneUser.location.state}</div></td></tr>
                                 <tr><td><div>Телефон</div></td><td><div>${oneUser.phone}</div></td></tr>
                               </table>
-                              <a href='#close' class="close" title='Закрыть' onclick='fon.style.display="none"'>&times</span>
+                              <span class="close">&times</span>
                               </div>`;
       dataUserList.appendChild(newDiv);
     }
+
+    var diveEventAssignment = document.getElementsByClassName('dataNameUser');
+    for (let i = 0; i < diveEventAssignment.length; i++) {
+      diveEventAssignment[i].addEventListener("click", function(){
+        let currentUser = this.getElementsByClassName('fullDataNameUser')[0];
+        fon.style.display = "block";
+        currentUser.style.display = "block";
+      }, true);
+    }
+
+    var fullUser = document.getElementsByClassName('fullDataNameUser');
+    var close = document.getElementsByClassName('close');
+    for (let i = 0; i < close.length; i++) {
+      close[i].addEventListener("click", function(){
+        for (let i = 0; i < fullUser.length; i++) {
+          fullUser[i].style.display = "none";
+          fon.style.display = "none";
+        }
+      }, false);
+    }
+
   }
-  
+
   let sortByNameAscendingBtn = document.getElementById('sortByNameAscending');
   sortByNameAscendingBtn.addEventListener('click', sortingByNameAscending);
   function sortingByNameAscending() {
@@ -68,7 +90,7 @@ function requestToServer() {
     callback();
   }
 
-  var sortByNameDescendingBtn = document.getElementById('sortByNameDescending');
+  let sortByNameDescendingBtn = document.getElementById('sortByNameDescending');
   sortByNameDescendingBtn.addEventListener('click', sortingByNameDescending);
   function sortingByNameDescending() {
     sortResponseToServer = JSON.parse(xhr.response).results.slice(0);

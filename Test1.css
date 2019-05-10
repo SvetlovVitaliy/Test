@@ -88,7 +88,7 @@ span{
   bottom: 0;
   left: 0;
   background-color: rgba(0,0,0,0.8);
-  z-index: 99998;
+  z-index: 100;
   display: none;
 }
 .fullDataNameUser {
@@ -99,9 +99,8 @@ span{
     bottom: 40%;
     left: 10%;
     background: rgba(0,0,0,0.8);
-    z-index: 99999;
+    z-index: 150;
     display: none;
-    pointer-events: none;
     background-color: #61b6ff;
     border-radius: 2em;
     height: auto;
@@ -124,13 +123,20 @@ span{
 .modal{
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 150;
   left: 0;
   top: 0;
   width: 100%;
   heigth: 100%;
   overflow: auto;
   background-color: red;
+}
+.modal-content{
+    width: 80%;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 15% auto;
+    background-color: green;
 }
 .close{
     background: #606061;
@@ -144,5 +150,8 @@ span{
     text-decoration: none;
     font-weight: bold;
     border-radius: 12px;
+    z-index: 150;
+    float: right;
+    font-size: 28px;
 }
 .close:hover { background: #00d9ff; }
