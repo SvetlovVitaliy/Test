@@ -38,19 +38,15 @@ function requestToServer() {
       
       let newDiv = document.createElement('div');
         newDiv.className = 'dataNameUser';
-        newDiv.innerHTML =  `<div><table><tr><td class="firstColl"><img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /></td><td class="tooColl"><span class='nameUser'><span>${oneUser.name.title}.</span><span class='nameUserFirst'>${oneUserFirstUp}</span><span class='nameUserUpper'>${oneUserLastUp}</span></span></td></tr></table></a>
-                            </div>
-                            <div class='fullDataNameUser' id='user${oneUser.name.first}${oneUser.name.last}'>
-                              <table class='fullDataUserTable'>
-                                <tr><td class='firstCollFullData' rowspan="6"><img class='avatarUserBig' src="${oneUser.picture.large}" alt="bigAvatar" /></td><td><div>Имя</div></td><td><div class='nameUserUpper'>${oneUserFirstUp}</div></td></tr>
-                                <tr><td><div>Фамилия</div></td><td><div class='nameUserUpper'>${oneUserLastUp}</div></td></tr>
-                                <tr><td><div>Улица</div></td><td><div class='nameUpper'>${oneUser.location.street}</div></td></tr>
-                                <tr><td><div>Город</div></td><td><div class='nameUpper'>${oneUserCityUp}</div></td></tr>
-                                <tr><td><div>Штат</div></td><td><div class='nameUpper'>${oneUser.location.state}</div></td></tr>
-                                <tr><td><div>Телефон</div></td><td><div>${oneUser.phone}</div></td></tr>
-                              </table>
+        newDiv.innerHTML =  `<img class='avatarUserSmall' src="${oneUser.picture.medium}" alt="smallAvatar" /><div>${oneUser.name.title}.</div><div class='nameUserFirst'>${oneUserFirstUp}</div><div class='nameUserUpper'>${oneUserLastUp}</div>
+                            <div class='fullDataNameUser'>
+                              <img class='avatarUserBig' src="${oneUser.picture.large}" alt="bigAvatar" />
+                              <span class='nameUser'>
+                                <span><p>Имя:<br>Фамилия:<br>Улица:<br>Город:<br>Штат:<br>Телефон:</p></span>
+                                <span><p>${oneUserFirstUp}<br>${oneUserLastUp}<br>${oneUser.location.street}<br>${oneUserCityUp}<br>${oneUser.location.state}<br>${oneUser.phone}</p></span>
+                              </span>
                               <span class="close">&times</span>
-                              </div>`;
+                            </div>`;
       dataUserList.appendChild(newDiv);
     }
 
@@ -59,7 +55,7 @@ function requestToServer() {
       diveEventAssignment[i].addEventListener("click", function(){
         let currentUser = this.getElementsByClassName('fullDataNameUser')[0];
         fon.style.display = "block";
-        currentUser.style.display = "block";
+        currentUser.style.display = "flex";
       }, true);
     }
 
